@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Library</h1><hr>
+
+    <button class="showForm">New book</button>
+    <div id="newBookForm">
+    <h2>Add new book</h2>
+        <label for="title">Title <br>
+            <input type="text" name="title" required>
+        </label><br>
+        <label for="author">Author <br>
+            <input type="text" name="author" required>
+        </label><br>
+        <label for="pages">Pages <br>
+            <input type="text" name="pages" required>
+        </label><br>
+        <label for="title">Did you read this book? <br>
+            <select name="read" id="">
+                <option value="True">Yes</option>
+                <option value="False">No</option>
+            </select>
+        </label><br>
+        <button class="addBookToLibrary">Save</button>
+    </div><br><br>
+
+    <h2>My Library</h2>
+    <div id="library"></div>
+
+    <script src="main.js"></script>
+</body>
+</html>

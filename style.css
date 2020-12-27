@@ -1,0 +1,68 @@
+body {
+  font-family: "Comfortaa", cursive;
+}
+
+h1 {
+  color: blueviolet;
+}
+
+h2 {
+  color: darkslateblue;
+}
+
+#newBookForm {
+  display: none;
+}
+
+label {
+  margin: 10px 0 10px 20px;
+}
+
+input,
+select {
+  margin: 5px 0 5px 20px;
+}
+
+button {
+  color: darkslateblue;
+  border: 2px solid darkslateblue;
+  font-size: 18px;
+  background-color: transparent;
+  padding: 8px 20px;
+  margin: 20px;
+}
+
+button:hover {
+  background-color: darkslateblue;
+  color: white;
+}
+
+#library {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.bookCard {
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid darkslateblue;
+  border-radius: 10px;
+  box-shadow: 0px 0px 32px 6px rgba(71, 61, 139, 0.089);
+  display: flex;
+  flex-direction: column;
+}
+
+.bookCard button {
+  border: 0;
+  border-bottom: 1px solid darkslateblue;
+  font-size: 16px;
+  padding: 8px 0;
+  margin: 10px 0;
+}
+
+button,
+select,
+input {
+  outline: none;
+}
