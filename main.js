@@ -8,8 +8,27 @@ const errorMessage = document.getElementsByClassName("error")[0];
 
 let myLibrary = []; //хранит книги пользователя
 let formVisible = false; // показывает видна ли форма для добавления книг
-let bookId = 0;
+let bookId;
 let bookCard;
+
+// LOCAL STORAGE
+
+document.addEventListener("DOMContentLoaded", () => {
+    let storageData = localStorage.getItem("library");
+    if (storageData != null) {
+        myLibrary = JSON.parse(storageData);
+    }
+    bookId = myLibrary.length;
+    renderLibrary();
+});
+
+function updateLocalStorage() {
+    let jsonLibrary = JSON.stringify(myLibrary);
+    localStorage.setItem("library", jsonLibrary);
+    localStorage.setItem("bookId", bookId);
+}
+
+// LIBRARY
 
 class Book {
     constructor(title, author, pages, read) {
@@ -21,13 +40,14 @@ class Book {
     }
 }
 
-    Book.prototype.info = function (bookInfo) {
-    return this[bookInfo];
+info = function (book, bookInfo) {
+    return book[bookInfo];
 }
 
 function renderLibrary() {
     library.innerHTML = "";
     renderBook();
+    updateLocalStorage();
 }
 
 function createDelButt(book) {
@@ -96,10 +116,10 @@ function createBookCard(book) {
     let changeImg = document.createElement("img");
     changeImg.src = "img/exchange.svg"
 
-    cardTitle.innerHTML = book.info("title");
+    cardTitle.innerHTML = info(book, "title");
     cardTitle.appendChild(delButt);
-    cardInfo.innerHTML = "Author: " + book.info("author") + "\nPages: " + book.info("pages");
-    changeReadButt.innerHTML = book.info("read") ? "Read" : "Not Read";
+    cardInfo.innerHTML = "Author: " + info(book, "author") + "\nPages: " + info(book, "pages");
+    changeReadButt.innerHTML = (info(book, "read") == true) ? "Read" : "Not Read";
     changeReadButt.appendChild(changeImg);
 }
 
@@ -115,6 +135,9 @@ addBookToLibraryButt.onclick = (e) => {
     let pages = document.getElementsByName("pages")[0].value;
     let read = document.getElementsByName("read")[0].value;
 
+    if(read == "true") read = true 
+    else read = false;
+    
     if (title == "" || author == "" || pages == "") {
         errorMessage.style.display = "block";
     } else {
@@ -128,8 +151,6 @@ addBookToLibraryButt.onclick = (e) => {
         e.stopPropagation();
     }
 }
-
-
 
 // MODAL WINDOW
 

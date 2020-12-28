@@ -160,7 +160,8 @@ button.addBookToLibrary:hover {
 }
 
 #library {
-  display: grid;
+    padding: 0 20px;
+    display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
 }
@@ -221,4 +222,31 @@ button,
 select,
 input {
   outline: none;
+}
+
+
+@media screen and (max-width: 800px) {
+  #library {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #library {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .header-wrapper {
+    flex-direction: column;
+  }
+
+  button.showForm {
+    margin-top: 20px;
+  }
+
+  #library {
+    grid-template-columns: 1fr;
+  }
 }
